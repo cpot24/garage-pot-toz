@@ -192,15 +192,4 @@
         </pluginManagement>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>garage</id>
-            <url>http://192.168.1.179:8085/nexus/content/repositories/garage-release</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <url>http://192.168.1.179:8085/nexus/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
-
 </project>
