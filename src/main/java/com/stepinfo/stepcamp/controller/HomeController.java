@@ -1,7 +1,6 @@
 package com.stepinfo.stepcamp.controller;
 
 import com.stepinfo.stepcamp.model.Garage;
-import com.stepinfo.stepcamp.service.AvionService;
 import com.stepinfo.stepcamp.service.BateauService;
 import com.stepinfo.stepcamp.service.MotoService;
 import com.stepinfo.stepcamp.service.VoitureService;
@@ -22,8 +21,6 @@ public class HomeController {
     private MotoService motoService;
     @Autowired
     private BateauService bateauService;
-    @Autowired
-    private AvionService avionService;
 
 	@RequestMapping({"/", "/home"})
 	public String goHome(Model model) {
@@ -38,7 +35,6 @@ public class HomeController {
         model.addAttribute("nbVoitures", voitureService.getListeVoitures().size());
         model.addAttribute("nbMotos", motoService.getListeMotos().size());
         model.addAttribute("nbBateaux", bateauService.getListeBateaux().size());
-        model.addAttribute("nbAvions", avionService.getListeAvions().size());
 		return "home";
 	}
 	

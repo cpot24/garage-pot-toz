@@ -21,10 +21,10 @@ public class Vehicule {
     //private Marque marque;
 
     @NotEmpty
-    private String marque;
+    private Marque marque;
 
     @NotEmpty
-    private String modele;
+    private Modele modele;
 
     @NotEmpty
     private String couleur;
@@ -57,21 +57,21 @@ public class Vehicule {
         this.type = type;
     }
 
-    public String getMarque() {
+    public Marque getMarque() {
         return marque;
     }
 
     @XmlElement
-    public void setMarque(String marque) {
+    public void setMarque(Marque marque) {
         this.marque = marque;
     }
 
-    public String getModele() {
+    public Modele getModele() {
         return modele;
     }
 
     @XmlElement
-    public void setModele(String modele) {
+    public void setModele(Modele modele) {
         this.modele = modele;
     }
 

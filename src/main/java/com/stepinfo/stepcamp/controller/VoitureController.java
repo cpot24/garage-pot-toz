@@ -23,7 +23,6 @@ public class VoitureController {
 
     @Autowired
     private VoitureService voitureService;
-
     private int idVoitureMaj = 0;
     private List<String> choixOptions = new ArrayList<String>();
     private List<String> choixMarques = new ArrayList<String>();

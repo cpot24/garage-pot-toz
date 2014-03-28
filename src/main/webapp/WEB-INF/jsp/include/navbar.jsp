@@ -47,25 +47,13 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bateaux<b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li class="dropdown-header">Menu principal</li>
-                    <li class="disabled"><a href="#">Liste des bateaux</a></li>
-                    <li class="disabled"><a href="#">Ajouter un bateau</a></li>
+                    <li><a href="/garage/bateau">Liste des bateaux</a></li>
+                    <li><a href="/garage/prepareAjoutBateau">Ajouter une bateau</a></li>
                     <li class="divider"></li>
                     <li class="dropdown-header">Ajouter une option</li>
-                    <li class="disabled"><a href="#">Liste des options</a></li>
-                    <li class="disabled"><a href="#">Ajouter une option</a></li>
+                    <li><a href="/garage/prepareSuppressionOptionBateau">Liste des options</a></li>
+                    <li><a href="/garage/prepareAjoutOptionBateau">Ajouter une option</a></li>
                 </ul>
-              </li>
-              <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Avions<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                      <li class="dropdown-header">Menu principal</li>
-                      <li class="disabled"><a href="#">Liste des avions</a></li>
-                      <li class="disabled"><a href="#">Ajouter un avion</a></li>
-                      <li class="divider"></li>
-                      <li class="dropdown-header">Ajouter une option</li>
-                      <li class="disabled"><a href="#">Liste des options</a></li>
-                       <li class="disabled"><a href="#">Ajouter une option</a></li>
-                  </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
