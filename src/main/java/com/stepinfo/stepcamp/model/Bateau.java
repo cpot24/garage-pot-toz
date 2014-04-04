@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * Created by cpot on 26/03/2014.
  */
-@XmlRootElement(name = "garage")
+@XmlRootElement(name = "bateau")
 public class Bateau extends Vehicule{
     @NotNull
     private Integer nbGilet;
