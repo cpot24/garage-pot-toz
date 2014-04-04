@@ -15,7 +15,7 @@
         <div class="hero-unit">
             <img src="static/img/potatoes.png" />
         </div>
-        <div style="padding-left: 5%; width: 30%;">
+        <div style="padding-left: 5%; width: 95%;">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     ${nomGarage}
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div style="width: 50%;">
+        <div style="width: 98%;">
             <ul class="list-group">
               <li class="list-group-item">
                 <span class="badge">${nbVoitures}</span>
@@ -37,7 +37,7 @@
               </li>
             </ul>
         </div>
-        <div style="width: 50%;">
+        <div style="width: 98%;">
             <ul class="list-group">
               <li class="list-group-item">
                 <span class="badge">${nbMotos}</span>
@@ -45,7 +45,7 @@
               </li>
             </ul>
         </div>
-        <div style="width: 50%;">
+        <div style="width: 98%;">
             <ul class="list-group">
               <li class="list-group-item">
                 <span class="badge">${nbBateaux}</span>

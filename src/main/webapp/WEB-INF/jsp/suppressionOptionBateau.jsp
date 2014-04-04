@@ -16,7 +16,7 @@
 		<jsp:include page="include/footer.jsp" />
         <jsp:include page="include/navbar.jsp" />
 		<div class="container-fluid">
-		    <h1>Liste des options</h1>
+		    <h1>Liste des options d'un bateau</h1>
 		    <br />
 			<div id="fluidContainer" class="row-fluid">
 				<div id="container" class="span9">
