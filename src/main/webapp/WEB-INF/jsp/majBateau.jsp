@@ -14,12 +14,12 @@
 		<jsp:include page="include/navbar.jsp" />
 		<br />
 		<div class="container-fluid">
-		    <h1>Mise &agrave; jour d'une voiture</h1>
+		    <h1>Mise &agrave; jour d'un bateau</h1>
 		    <br />
 			<div id="fluidContainer" class="row-fluid">
 				<div id="container" class="span9">
 					<div>
-						<form:form action="/majSauvegarde" commandName="voiture" method="post" class="form-horizontal">
+						<form:form action="/majSauvegardeBateau" commandName="bateau" method="post" class="form-horizontal">
 						     <div class="control-group">
                                 <label class="control-label" for="id">Id : </label>
                                 <div class="controls">
@@ -30,7 +30,7 @@
 							<jsp:include page="include/detail.jsp"/>
 							<br />
 							<br />
-                            <jsp:include page="include/detailVoiture.jsp"/>
+                            <jsp:include page="include/detailBateau.jsp"/>
                             <div class="control-group">
 							    <div class="controls">
 							        <input type="submit" value="Enregistrer" />
