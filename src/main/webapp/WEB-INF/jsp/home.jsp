@@ -53,14 +53,6 @@
               </li>
             </ul>
         </div>
-        <div style="width: 50%;">
-            <ul class="list-group">
-              <li class="list-group-item">
-                <span class="badge">${nbAvions}</span>
-                <a href="#">Avions</a>
-              </li>
-            </ul>
-        </div>
 	</body>
 </html>
 

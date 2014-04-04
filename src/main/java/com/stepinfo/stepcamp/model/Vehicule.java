@@ -5,11 +5,14 @@ import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.security.PrivateKey;
 import java.util.List;
 
 /**
  * Created by cpot & vcamus on 25/03/2014.
  */
+@XmlRootElement(name = "vehicule")
 public class Vehicule {
 
     private Integer id;
@@ -17,14 +20,11 @@ public class Vehicule {
     @NotEmpty
     private String type;
 
-    //@NotEmpty
-    //private Marque marque;
+    @NotEmpty
+    private String marque;
 
     @NotEmpty
-    private Marque marque;
-
-    @NotEmpty
-    private Modele modele;
+    private String modele;
 
     @NotEmpty
     private String couleur;
@@ -57,21 +57,21 @@ public class Vehicule {
         this.type = type;
     }
 
-    public Marque getMarque() {
+    public String getMarque() {
         return marque;
     }
 
     @XmlElement
-    public void setMarque(Marque marque) {
+    public void setMarque(String marque) {
         this.marque = marque;
     }
 
-    public Modele getModele() {
+    public String getModele() {
         return modele;
     }
 
     @XmlElement
-    public void setModele(Modele modele) {
+    public void setModele(String modele) {
         this.modele = modele;
     }
 

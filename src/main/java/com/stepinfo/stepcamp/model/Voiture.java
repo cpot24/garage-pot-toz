@@ -16,11 +16,11 @@ public class Voiture extends Vehicule {
 	}
 
     @NotNull
-    @Range(min = 4)
+    @Range(min = 4, max = 8)
     private Integer nbRoues;
 
     @NotNull
-    @Range(min = 3)
+    @Range(min = 3, max = 5)
     private Integer nbPortes;
 
     public Integer getNbRoues() {

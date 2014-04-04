@@ -7,18 +7,24 @@
                 <form:input id="type" path="type" type="hidden" cssErrorClass="error"/>
             </div>
         </div>
-		<div class="control-group">
-            <label  class="control-label" for="marque">Marque : </label>
+
+        <div class="control-group">
+            <label  class="control-label" for="marque">Marque</label>
             <div class="controls">
-                <form:select path="marque" items="${choixMarques}" var="marques"/>
+                <form:input id="marque" path="marque" cssErrorClass="error"/>
                 <br />
-                <c:forEach var="modele" items="${requestScope['choixMarques']}">
-                    <select id="${modele.libelle}" path="modele" value="${model.libelle}"/>
-                </c:forEach>
                 <br />
                 <form:errors path="marque" class="alert alert-danger"/>
             </div>
-
+        </div>
+        <div class="control-group">
+            <label  class="control-label" for="modele">Mod&egrave;le</label>
+            <div class="controls">
+                <form:input id="modele" path="modele" cssErrorClass="error"/>
+                <br />
+                <br />
+                <form:errors path="modele" class="alert alert-danger"/>
+            </div>
         </div>
 		<div class="control-group">
 			<label  class="control-label" for="couleur">Couleur</label>

@@ -35,7 +35,7 @@ public class VoitureController {
     @RequestMapping("/voiture")
     public String listeVoiture(Model model) {
         model.addAttribute("listeVoiture", voitureService.getListeVoitures());
-		return "listeVoiture";
+       return "listeVoiture";
 	}
 
     //Préparation de l'ajout d'une voiture
@@ -134,26 +134,19 @@ public class VoitureController {
         return "redirect:/prepareSuppressionOption";
     }
 
-    //Affichage de la liste des marques
-    @RequestMapping("/listeMarqueVoiture")
-    public String listeMarques(Model model) {
-        model.addAttribute("listeMarques", choixMarques);
-        return "listeMarque";
-    }
-
     /***********
      * Données *
      ***********/
 
-    //Marques
-    @ModelAttribute("choixMarques")
-    public List<String> addMarques() {
-        choixMarques.add("PEUGEOT");
-        choixMarques.add("CITROEN");
-        choixMarques.add("RENAULT");
-
-        return choixMarques;
-    }
+//    //Marques
+//    @ModelAttribute("choixMarques")
+//    public List<String> addMarques() {
+//        choixMarques.add("PEUGEOT");
+//        choixMarques.add("CITROEN");
+//        choixMarques.add("RENAULT");
+//
+//        return choixMarques;
+//    }
 
     //Options
     @ModelAttribute("choixOptions")
