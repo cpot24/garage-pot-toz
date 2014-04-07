@@ -50,6 +50,8 @@
 										<td>
 										    <a href="/garage/maj?id_voiture=${voiture.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>
 										    <a href="/garage/suppression?id_voiture=${voiture.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
+										    <a href="/garage/voiture/xml/${voiture.id}">XML</a>
+										    <a href="/garage/voiture/json/${voiture.id}">JSON</a>
 										</td>
 									</tr>
 								</c:forEach>

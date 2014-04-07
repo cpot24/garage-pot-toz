@@ -6,17 +6,15 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import com.stepinfo.stepcamp.model.Voiture;
 import com.stepinfo.stepcamp.service.VoitureService;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -163,4 +161,16 @@ public class VoitureController {
         }
 		return choixOptions;
 	}
+
+    @RequestMapping(value = "/voiture/xml/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    @ResponseBody
+    public Voiture getVoitureXml(@PathVariable int id) {
+        return voitureService.getVoitureById(id);
+    }
+
+    @RequestMapping(value = "/voiture/json/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public Voiture getVoitureJson(@PathVariable int id) {
+        return voitureService.getVoitureById(id);
+    }
 }
