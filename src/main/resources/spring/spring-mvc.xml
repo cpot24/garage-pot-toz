@@ -17,6 +17,7 @@
     <mvc:annotation-driven/>
 
     <context:component-scan base-package="com.stepinfo.stepcamp.controller"/>
+    <context:component-scan base-package="com.stepinfo.stepcamp.config" />
 
     <mvc:resources location="/static/" mapping="/static/**"/>
 
