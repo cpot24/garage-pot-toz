@@ -24,11 +24,11 @@
                 <ul class="dropdown-menu">
                     <li class="dropdown-header">Menu principal</li>
                     <li><a id="listeVoiture" href="/voiture">Liste des voitures</a></li>
-                    <li><a id="creerVoiture" href="/prepareAjout">Ajouter une voiture</a></li>
+                    <li><a id="creerVoiture" href="/responsablePrepareAjout">Ajouter une voiture</a></li>
                     <li class="divider"></li>
                     <li class="dropdown-header">Autres actions</li>
                     <li><a id="listeOptionsVoiture" href="/prepareSuppressionOption">Liste des options</a></li>
-                    <li><a id="creerOptionsVoiture" href="/prepareAjoutOption">Ajouter une option</a></li>
+                    <li><a id="creerOptionsVoiture" href="/adminPrepareAjoutOption">Ajouter une option</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -36,11 +36,11 @@
                 <ul class="dropdown-menu">
                     <li class="dropdown-header">Menu principal</li>
                     <li><a id="listeMoto" href="/moto">Liste des motos</a></li>
-                    <li><a id="creerMoto" href="/prepareAjoutMoto">Ajouter une moto</a></li>
+                    <li><a id="creerMoto" href="/responsablePrepareAjoutMoto">Ajouter une moto</a></li>
                     <li class="divider"></li>
                     <li class="dropdown-header">Ajouter une option</li>
                     <li><a id="listeOptionsMoto" href="/prepareSuppressionOptionMoto">Liste des options</a></li>
-                    <li><a id="creerOptionsMoto" href="/prepareAjoutOptionMoto">Ajouter une option</a></li>
+                    <li><a id="creerOptionsMoto" href="/adminPrepareAjoutOptionMoto">Ajouter une option</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -48,11 +48,11 @@
                 <ul class="dropdown-menu">
                     <li class="dropdown-header">Menu principal</li>
                     <li><a id="listeBateau" href="/bateau">Liste des bateaux</a></li>
-                    <li><a id="creerBateau" href="/prepareAjoutBateau">Ajouter une bateau</a></li>
+                    <li><a id="creerBateau" href="/responsablePrepareAjoutBateau">Ajouter une bateau</a></li>
                     <li class="divider"></li>
                     <li class="dropdown-header">Ajouter une option</li>
                     <li><a id="listeOptionsBateau" href="/prepareSuppressionOptionBateau">Liste des options</a></li>
-                    <li><a id="creerOptionsBateau" href="/prepareAjoutOptionBateau">Ajouter une option</a></li>
+                    <li><a id="creerOptionsBateau" href="/adminPrepareAjoutOptionBateau">Ajouter une option</a></li>
                 </ul>
               </li>
             </ul>

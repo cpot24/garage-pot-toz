@@ -67,7 +67,7 @@ public class VehiculeTest {
         assertEquals(bateaux.size(), 1);
 
         // Supprimer tous les véhicules créés
-        supprimerVehicules();
+      //  supprimerVehicules();
     }
 
     private void creerVehicules(){

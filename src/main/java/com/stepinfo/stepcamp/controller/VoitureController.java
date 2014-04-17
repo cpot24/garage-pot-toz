@@ -4,7 +4,6 @@ import com.stepinfo.stepcamp.model.Voiture;
 import com.stepinfo.stepcamp.service.VoitureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,8 +35,7 @@ public class VoitureController {
 	}
 
     //Préparation de l'ajout d'une voiture
-    @RequestMapping(value = "/prepareAjout", method = RequestMethod.GET)
-    @Secured("ROLE_ADMIN")
+    @RequestMapping(value = "/responsablePrepareAjout", method = RequestMethod.GET)
 	public String prepareAjoutVoiture(Voiture voiture, Model model) {
         model.addAttribute("voiture", voitureService.getNouvelleVoiture());
         idVoitureMaj = 0;
@@ -56,14 +54,14 @@ public class VoitureController {
 	}
 
     //Suppression d'une voiture
-    @RequestMapping(value = "/suppression", method = RequestMethod.GET, params = {"id_voiture"})
+    @RequestMapping(value = "/responsableSuppression", method = RequestMethod.GET, params = {"id_voiture"})
         public String suppressionVoiture(@RequestParam(value = "id_voiture") int idVoiture, Model model) {
         voitureService.removeVoiture(idVoiture);
         return "redirect:/voiture";
     }
 
     //Préparation de la mise à jour d'une voiture
-    @RequestMapping(value = "/maj", method = RequestMethod.GET, params = {"id_voiture"})
+    @RequestMapping(value = "/collaborateurMaj", method = RequestMethod.GET, params = {"id_voiture"})
     public String misAJourVoiture(@RequestParam(value = "id_voiture") int idVoiture, Model model) {
         model.addAttribute("voiture", voitureService.getVoitureById(idVoiture));
         return "maj";
@@ -85,7 +83,7 @@ public class VoitureController {
      **********/
 
     //Préparation de l'ajout d'une option
-    @RequestMapping(value = "/prepareAjoutOption")
+    @RequestMapping(value = "/adminPrepareAjoutOption")
     public String prepareAjoutOption(Voiture voiture, Model model) {
        model.addAttribute("options", voiture.getOptions());
        return "ajoutOption";
@@ -121,7 +119,7 @@ public class VoitureController {
     }
 
     //Suppression d'une option
-    @RequestMapping(value = "/suppressionOption", method = RequestMethod.GET, params = {"id_option"})
+    @RequestMapping(value = "/adminSuppressionOption", method = RequestMethod.GET, params = {"id_option"})
     public String suppressionOption(@RequestParam(value = "id_option") String idOption, Model model) {
         for (int i=0; i<choixOptions.size(); i++){
             if (choixOptions.get(i).equals(idOption)){

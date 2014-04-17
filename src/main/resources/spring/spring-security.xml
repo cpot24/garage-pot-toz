@@ -8,6 +8,9 @@
            http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http>
+        <intercept-url pattern="/admin*" access="ROLE_ADMIN" />
+        <intercept-url pattern="/responsable*" access="ROLE_RESPONSABLE" />
+        <intercept-url pattern="/collaborateur*" access="ROLE_COLLABORATEUR" />
         <intercept-url pattern="/**" access="ROLE_USER" />
         <form-login default-target-url="/" />
         <logout />
@@ -16,7 +19,9 @@
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="pot" password="pot" authorities="ROLE_USER, ROLE_ADMIN" />
+                <user name="pot" password="pot" authorities="ROLE_USER, ROLE_COLLABORATEUR, ROLE_RESPONSABLE, ROLE_ADMIN" />
+                <user name="resp" password="resp" authorities="ROLE_USER, ROLE_COLLABORATEUR, ROLE_RESPONSABLE" />
+                <user name="collabo" password="collabo" authorities="ROLE_USER, ROLE_COLLABORATEUR" />
                 <user name="toz" password="toz" authorities="ROLE_USER" />
             </user-service>
         </authentication-provider>

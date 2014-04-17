@@ -1,9 +1,7 @@
 package com.stepinfo.stepcamp.controller;
 
 import com.stepinfo.stepcamp.model.Moto;
-import com.stepinfo.stepcamp.model.Voiture;
 import com.stepinfo.stepcamp.service.MotoService;
-import com.stepinfo.stepcamp.service.VoitureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,7 +38,7 @@ public class MotoController {
 	}
 
     //Préparation de l'ajout d'une moto
-    @RequestMapping(value = "/prepareAjoutMoto", method = RequestMethod.GET)
+    @RequestMapping(value = "/responsablePrepareAjoutMoto", method = RequestMethod.GET)
 	public String prepareAjoutMoto(Moto moto, Model model) {
         model.addAttribute("moto", motoService.getNouvelleMoto());
         idMotoMaj = 0;
@@ -59,14 +57,14 @@ public class MotoController {
 	}
 
     //Suppression d'une moto
-    @RequestMapping(value = "/suppressionMoto", method = RequestMethod.GET, params = {"id_moto"})
+    @RequestMapping(value = "/responsableSuppressionMoto", method = RequestMethod.GET, params = {"id_moto"})
         public String suppressionMoto(@RequestParam(value = "id_moto") int idMoto, Model model) {
         motoService.removeMoto(idMoto);
         return "redirect:/moto";
     }
 
     //Préparation de la mise à jour d'une moto
-    @RequestMapping(value = "/majMoto", method = RequestMethod.GET, params = {"id_moto"})
+    @RequestMapping(value = "/collaborateurMajMoto", method = RequestMethod.GET, params = {"id_moto"})
     public String misAJourMoto(@RequestParam(value = "id_moto") int idMoto, Model model) {
         model.addAttribute("moto", motoService.getMotoById(idMoto));
         return "majMoto";
@@ -88,7 +86,7 @@ public class MotoController {
      **********/
 
     //Préparation de l'ajout d'une option
-    @RequestMapping(value = "/prepareAjoutOptionMoto")
+    @RequestMapping(value = "/adminPrepareAjoutOptionMoto")
     public String prepareAjoutOptionMoto(Moto moto, Model model) {
        model.addAttribute("options", moto.getOptions());
        return "ajoutOptionMoto";
@@ -123,7 +121,7 @@ public class MotoController {
     }
 
     //Suppression d'une option
-    @RequestMapping(value = "/suppressionOptionMoto", method = RequestMethod.GET, params = {"id_option"})
+    @RequestMapping(value = "/adminSuppressionOptionMoto", method = RequestMethod.GET, params = {"id_option"})
     public String suppressionOptionMoto(@RequestParam(value = "id_option") String idOption, Model model) {
         for (int i=0; i<choixOptions.size(); i++){
             if (choixOptions.get(i).equals(idOption)){

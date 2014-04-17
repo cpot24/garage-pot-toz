@@ -48,8 +48,8 @@
 										<td>${voiture.neuf ? 'Neuf':'Occasion'}</td>
 										<td>${voiture.options}</td>
 										<td>
-										    <a href="/maj?id_voiture=${voiture.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>
-										    <a href="/suppression?id_voiture=${voiture.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
+										    <a href="/collaborateurMaj?id_voiture=${voiture.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>
+										    <a href="/responsableSuppression?id_voiture=${voiture.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
 										    <a href="/voiture/xml/${voiture.id}">XML</a>
 										    <a href="/voiture/json/${voiture.id}">JSON</a>
 										</td>

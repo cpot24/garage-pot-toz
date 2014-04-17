@@ -1,9 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <html>
     <head>
     <link href="<spring:url value='/static/css/bootstrap.css'/>" rel="stylesheet" type="text/css" />
@@ -48,8 +46,8 @@
 										<td>${bateau.neuf ? 'Neuf':'Occasion'}</td>
 										<td>${bateau.options}</td>
 										<td>
-										    <a href="/majBateau?id_bateau=${bateau.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>
-										    <a href="/suppressionBateau?id_bateau=${bateau.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
+										    <a href="/collaborateurMajBateau?id_bateau=${bateau.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>
+										    <a href="/responsableSuppressionBateau?id_bateau=${bateau.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
 										</td>
 									</tr>
 								</c:forEach>

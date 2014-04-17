@@ -48,8 +48,8 @@
 										<td>${moto.neuf ? 'Neuf':'Occasion'}</td>
 										<td>${moto.options}</td>
 										<td>
-										    <a href="/majMoto?id_moto=${moto.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>
-										    <a href="/suppressionMoto?id_moto=${moto.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
+										    <a href="/collaborateurMajMoto?id_moto=${moto.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>
+										    <a href="/responsableSuppressionMoto?id_moto=${moto.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
 										</td>
 									</tr>
 								</c:forEach>

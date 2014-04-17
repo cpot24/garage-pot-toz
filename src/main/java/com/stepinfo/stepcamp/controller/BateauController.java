@@ -1,9 +1,7 @@
 package com.stepinfo.stepcamp.controller;
 
 import com.stepinfo.stepcamp.model.Bateau;
-import com.stepinfo.stepcamp.model.Moto;
 import com.stepinfo.stepcamp.service.BateauService;
-import com.stepinfo.stepcamp.service.MotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,7 +38,7 @@ public class BateauController {
 	}
 
     //Préparation de l'ajout d'une bateau
-    @RequestMapping(value = "/prepareAjoutBateau", method = RequestMethod.GET)
+    @RequestMapping(value = "/responsablePrepareAjoutBateau", method = RequestMethod.GET)
 	public String prepareAjoutBateau(Bateau bateau, Model model) {
         model.addAttribute("bateau", bateauService.getNouveauBateau());
         idBateauMaj = 0;
@@ -59,14 +57,14 @@ public class BateauController {
 	}
 
     //Suppression d'un bateau
-    @RequestMapping(value = "/suppressionBateau", method = RequestMethod.GET, params = {"id_bateau"})
+    @RequestMapping(value = "/responsableSuppressionBateau", method = RequestMethod.GET, params = {"id_bateau"})
         public String suppressionBateau(@RequestParam(value = "id_bateau") int idBateau, Model model) {
         bateauService.removeBateau(idBateau);
         return "redirect:/bateau";
     }
 
     //Préparation de la mise à jour d'un bateau
-    @RequestMapping(value = "/majBateau", method = RequestMethod.GET, params = {"id_bateau"})
+    @RequestMapping(value = "/collaborateurMajBateau", method = RequestMethod.GET, params = {"id_bateau"})
     public String misAJourBateau(@RequestParam(value = "id_bateau") int idBateau, Model model) {
         model.addAttribute("bateau", bateauService.getBateauById(idBateau));
         return "majBateau";
@@ -88,7 +86,7 @@ public class BateauController {
      **********/
 
     //Préparation de l'ajout d'une option
-    @RequestMapping(value = "/prepareAjoutOptionBateau")
+    @RequestMapping(value = "/adminPrepareAjoutOptionBateau")
     public String prepareAjoutOptionBateau(Bateau bateau, Model model) {
        model.addAttribute("options", bateau.getOptions());
        return "ajoutOptionBateau";
@@ -123,7 +121,7 @@ public class BateauController {
     }
 
     //Suppression d'une option
-    @RequestMapping(value = "/suppressionOptionBateau", method = RequestMethod.GET, params = {"id_option"})
+    @RequestMapping(value = "/adminSuppressionOptionBateau", method = RequestMethod.GET, params = {"id_option"})
     public String suppressionOptionBateau(@RequestParam(value = "id_option") String idOption, Model model) {
         for (int i=0; i<choixOptions.size(); i++){
             if (choixOptions.get(i).equals(idOption)){

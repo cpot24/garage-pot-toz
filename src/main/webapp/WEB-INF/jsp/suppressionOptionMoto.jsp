@@ -33,7 +33,7 @@
 									<tr>
 										<td>${option}</td>
 										<td>
-										    <a href="/suppressionOptionMoto?id_option=${option}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
+										    <a href="/adminSuppressionOptionMoto?id_option=${option}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
 										</td>
 									</tr>
 								</c:forEach>
