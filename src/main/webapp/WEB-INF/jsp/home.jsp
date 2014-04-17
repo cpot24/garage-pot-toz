@@ -33,7 +33,7 @@
             <ul class="list-group">
               <li class="list-group-item">
                 <span class="badge">${nbVoitures}</span>
-                <a href="/garage/voiture">Voitures</a>
+                <a href="/voiture">Voitures</a>
               </li>
             </ul>
         </div>
@@ -41,7 +41,7 @@
             <ul class="list-group">
               <li class="list-group-item">
                 <span class="badge">${nbMotos}</span>
-                <a href="/garage/moto">Motos</a>
+                <a href="/moto">Motos</a>
               </li>
             </ul>
         </div>
@@ -49,7 +49,7 @@
             <ul class="list-group">
               <li class="list-group-item">
                 <span class="badge">${nbBateaux}</span>
-                <a href="#">Bateaux</a>
+                <a href="/bateau">Bateaux</a>
               </li>
             </ul>
         </div>

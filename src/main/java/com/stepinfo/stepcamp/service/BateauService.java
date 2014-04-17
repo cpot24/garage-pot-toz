@@ -1,10 +1,9 @@
 package com.stepinfo.stepcamp.service;
 
 import com.stepinfo.stepcamp.model.Bateau;
-import com.stepinfo.stepcamp.model.Bateau;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -13,53 +12,66 @@ import java.util.List;
 @Service
 public class BateauService {
 
-    private static List<Bateau> listeBateaux = new ArrayList<Bateau>();
+    private static EntityManager entityManager;
 
-    private static int i=1;
+    static {
+        // Créer une EntityManagerFactory à partir du nom de notre contexte JPA
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa_test");
+
+        // Créer un EntityManager
+        entityManager = entityManagerFactory.createEntityManager();
+    }
 
     public static List<Bateau> getListeBateaux() {
-        return listeBateaux;
+        TypedQuery<Bateau> bateauTypedQuery = entityManager.createNamedQuery("bateau.tous", Bateau.class);
+        return bateauTypedQuery.getResultList();
     }
 
     public Bateau getBateauById(Integer id) {
-        for (Bateau bateau : listeBateaux) {
-            if (bateau.getId() == id) {
-                return bateau;
-            }
-        }
-        return null;
-    }
-
-    public static void setListeBateaux(List<Bateau> listeBateau) {
-        BateauService.listeBateaux = listeBateau;
+        TypedQuery<Bateau> bateauTypedQuery = entityManager.createNamedQuery("bateau.id", Bateau.class);
+        bateauTypedQuery.setParameter("id", id);
+        return bateauTypedQuery.getSingleResult();
     }
 
     public List<Bateau> addBateau(Bateau bateau) {
-        bateau.setId(i++);
-        listeBateaux.add(bateau);
-        return listeBateaux;
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        entityManager.persist(bateau);
+
+        entityTransaction.commit();
+
+        return getListeBateaux();
     }
 
     public void updateBateau(Bateau bateau) {
-        for (Bateau bateau_ : listeBateaux) {
-            System.out.println(bateau_.getId() + " ? " + bateau.getId());
-            if (bateau_.getId() == bateau.getId()) {
-                listeBateaux.remove(bateau_);
-                listeBateaux.add(bateau);
-                return;
-            }
+        // Bateau non trouvé
+        if (getBateauById(bateau.getId()).equals(null)){
+            return;
         }
+
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        entityManager.merge(bateau);
+
+        entityTransaction.commit();
     }
 
     public void removeBateau(Integer id) {
-        for (Bateau bateau : listeBateaux) {
-            if (bateau.getId() == id) {
-                listeBateaux.remove(bateau);
-                return;
-            }
+        Bateau bateau = getBateauById(id);
+        // Bateau non trouvé
+        if (bateau.equals(null)){
+            return;
         }
-    }
 
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        entityManager.remove(bateau);
+
+        entityTransaction.commit();
+    }
 
     public Bateau getNouveauBateau(){
         Bateau bateau = new Bateau();

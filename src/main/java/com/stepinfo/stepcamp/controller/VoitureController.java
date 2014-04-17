@@ -1,10 +1,7 @@
 package com.stepinfo.stepcamp.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.validation.Valid;
-
+import com.stepinfo.stepcamp.model.Voiture;
+import com.stepinfo.stepcamp.service.VoitureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
@@ -13,8 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import com.stepinfo.stepcamp.model.Voiture;
-import com.stepinfo.stepcamp.service.VoitureService;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -59,7 +57,7 @@ public class VoitureController {
 
     //Suppression d'une voiture
     @RequestMapping(value = "/suppression", method = RequestMethod.GET, params = {"id_voiture"})
-         public String suppressionVoiture(@RequestParam(value = "id_voiture") int idVoiture, Model model) {
+        public String suppressionVoiture(@RequestParam(value = "id_voiture") int idVoiture, Model model) {
         voitureService.removeVoiture(idVoiture);
         return "redirect:/voiture";
     }

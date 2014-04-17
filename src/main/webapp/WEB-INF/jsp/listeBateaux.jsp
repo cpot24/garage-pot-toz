@@ -48,8 +48,8 @@
 										<td>${bateau.neuf ? 'Neuf':'Occasion'}</td>
 										<td>${bateau.options}</td>
 										<td>
-										    <a href="/garage/majBateau?id_bateau=${bateau.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>
-										    <a href="/garage/suppressionBateau?id_bateau=${bateau.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
+										    <a href="/majBateau?id_bateau=${bateau.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>
+										    <a href="/suppressionBateau?id_bateau=${bateau.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />
 										</td>
 									</tr>
 								</c:forEach>

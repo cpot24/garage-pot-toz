@@ -34,8 +34,8 @@
 										<td>${marque.libelle}</td>
 										<td>${marque.modeles}</td>
 										<td>
-										    <!--<a href="/garage/maj?id_voiture=${voiture.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>-->
-										    <!--<a href="/garage/suppression?id_voiture=${voiture.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />-->
+										    <!--<a href="/maj?id_voiture=${voiture.id}"><img src="<spring:url value='/static/img/detail.jpg'/>" width="15" height="15" /></a>-->
+										    <!--<a href="/suppression?id_voiture=${voiture.id}"><img src="<spring:url value='/static/img/remove.jpg'/>" width="15" height="15" />-->
 										</td>
 									</tr>
 								</c:forEach>

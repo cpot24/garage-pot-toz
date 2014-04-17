@@ -1,40 +1,48 @@
 package com.stepinfo.stepcamp.model;
 
-import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.security.PrivateKey;
 import java.util.List;
 
-/**
- * Created by cpot & vcamus on 25/03/2014.
- */
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@NamedQueries({
+        @NamedQuery(name = "vehicule.tous", query = "from Vehicule"),
+        @NamedQuery(name = "vehicule.id", query = "from Vehicule where id = :id"),
+        @NamedQuery(name = "vehicule.type", query = "from Vehicule where type = :type"),
+        @NamedQuery(name = "vehicule.marque", query = "from Vehicule where marque = :marque"),
+        @NamedQuery(name = "vehicule.modele", query = "from Vehicule where modele = :modele"),
+})
 @XmlRootElement(name = "vehicule")
-public class Vehicule {
+public abstract class Vehicule {
 
+    @Id
+    @Column(name = "vehicule_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @NotEmpty
+    @Column( nullable = false)
     private String type;
 
-    @NotEmpty
+    @Column( nullable = false)
     private String marque;
 
-    @NotEmpty
+    @Column( nullable = false)
     private String modele;
 
-    @NotEmpty
+    @Column( nullable = false)
     private String couleur;
 
-    @NotNull
-    @Range(min = 1, max = 999)
+    @Column( nullable = false)
+    @Range(min = 1, max = 1999)
     private Integer puissance;
 
     private Boolean neuf;
 
+    @ElementCollection
     private List<String> options;
 
     private Integer nbPlaces;

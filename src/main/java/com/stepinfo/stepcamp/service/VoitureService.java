@@ -1,63 +1,73 @@
 package com.stepinfo.stepcamp.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.stepinfo.stepcamp.model.Voiture;
 import org.springframework.stereotype.Service;
 
-import com.stepinfo.stepcamp.model.Voiture;
+import javax.persistence.*;
+import java.util.List;
 
 @Service
 public class VoitureService {
 
-	private static List<Voiture> listeVoiture = new ArrayList<Voiture>();
+    private static EntityManager entityManager;
 
-	private static int i=1;
-	
 	static {
-		preparerLesVoitures();
+        // Créer une EntityManagerFactory à partir du nom de notre contexte JPA
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa_test");
+
+        // Créer un EntityManager
+        entityManager = entityManagerFactory.createEntityManager();
 	}
 	
 	public List<Voiture> getListeVoitures() {
-		return listeVoiture;
+        TypedQuery<Voiture> voitureTypedQuery = entityManager.createNamedQuery("voiture.tous", Voiture.class);
+		return voitureTypedQuery.getResultList();
 	}
 	
 	public Voiture getVoitureById(Integer id) {
-		for (Voiture voiture : listeVoiture) {
-			if (voiture.getId() == id) {
-				return voiture;
-			}
-		}
-		return null;
+        TypedQuery<Voiture> voitureTypedQuery = entityManager.createNamedQuery("voiture.id", Voiture.class);
+        voitureTypedQuery.setParameter("id", id);
+		return voitureTypedQuery.getSingleResult();
 	}
 	
 	public List<Voiture> addVoiture(Voiture voiture) {
-		voiture.setId(i++);
-		listeVoiture.add(voiture);
-		return listeVoiture;
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        entityManager.persist(voiture);
+
+        entityTransaction.commit();
+
+		return getListeVoitures();
 	}
 	
 	public void updateVoiture(Voiture voiture) {
-		for (Voiture voiture_ : listeVoiture) {
-            System.out.println(voiture_.getId() + " ? " + voiture.getId());
-			if (voiture_.getId() == voiture.getId()) {
-				listeVoiture.remove(voiture_);
-				listeVoiture.add(voiture);
-				return;
-			}
-		}
-	}
+        // Voiture non trouvée
+        if (getVoitureById(voiture.getId()).equals(null)){
+            return;
+        }
+
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        entityManager.merge(voiture);
+
+        entityTransaction.commit();
+    }
 	
 	public void removeVoiture(Integer id) {
-		for (Voiture voiture : listeVoiture) {
-			if (voiture.getId() == id) {
-				listeVoiture.remove(voiture);
-				return;
-			}
-		}
-	}
-	
-	private static void preparerLesVoitures() {
+        Voiture voiture = getVoitureById(id);
+        // Voiture non trouvée
+        if (voiture.equals(null)){
+            return;
+        }
+
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        entityManager.remove(voiture);
+
+        entityTransaction.commit();
 	}
 
     public Voiture getNouvelleVoiture(){

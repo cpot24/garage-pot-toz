@@ -1,14 +1,19 @@
 package com.stepinfo.stepcamp.model;
 
-import java.util.List;
+import org.hibernate.validator.constraints.Range;
 
+import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.constraints.Range;
-
+@Entity
+@NamedQueries({
+        @NamedQuery(name = "voiture.tous", query = "from Voiture"),
+        @NamedQuery(name = "voiture.id", query = "from Voiture where id = :id"),
+})
 @XmlRootElement(name = "voiture")
 public class Voiture extends Vehicule {
 
