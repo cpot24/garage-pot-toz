@@ -30,9 +30,40 @@ public class VoitureController {
     //Affichage de la liste des voitures
     @RequestMapping("/voiture")
     public String listeVoiture(Model model) {
-        model.addAttribute("listeVoiture", voitureService.getListeVoitures());
+       model.addAttribute("listeVoiture", voitureService.getListeVoitures());
        return "listeVoiture";
 	}
+
+    //Fichier JSON
+    @RequestMapping("/jsonListeVoitures")
+    @ResponseBody
+    public String jsonListeVoiture(Model model) {
+        int compteur = 0;
+        String resultat = "{\"aaData\":[";
+
+        List<Voiture> voitures = voitureService.getListeVoitures();
+        for (Voiture voiture : voitures){
+            compteur ++;
+            resultat += "[\"" + voiture.getId()
+                    + "\",\"" + voiture.getMarque()
+                    + "\",\"" + voiture.getModele()
+                    + "\",\"" + voiture.getCouleur()
+                    + "\",\"" + voiture.getPuissance()
+                    + "\",\"" + voiture.getNbRoues()
+                    + "\",\"" + voiture.getNbPortes()
+                    + "\",\"" + (voiture.getNeuf() ? "Neuf" : "Occasion")
+                    + "\",\"" + (voiture.getOptions() == null ? "Pas d'option" : voiture.getOptions().toString().replace("[", "").replace("]", ""))
+                    + "\",\"1\"]"
+            ;
+            if (compteur != voitures.size()){
+                resultat += ",";
+            }
+        }
+
+        resultat += "]}";
+
+        return resultat;
+    }
 
     //Préparation de l'ajout d'une voiture
     @RequestMapping(value = "/responsablePrepareAjout", method = RequestMethod.GET)

@@ -37,5 +37,9 @@ public class HomeController {
         model.addAttribute("nbBateaux", bateauService.getListeBateaux().size());
 		return "home";
 	}
-	
+
+    @RequestMapping({"/testDataTable"})
+    public String goTestDataTable(Model model) {
+        return "testDataTable";
+    }
 }

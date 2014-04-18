@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -36,6 +33,37 @@ public class BateauController {
         model.addAttribute("listeBateau", bateauService.getListeBateaux());
 		return "listeBateaux";
 	}
+
+    //Fichier JSON
+    @RequestMapping("/jsonListeBateaux")
+    @ResponseBody
+    public String jsonListeBateau(Model model) {
+        int compteur = 0;
+        String resultat = "{\"aaData\":[";
+
+        List<Bateau> bateaux = bateauService.getListeBateaux();
+        for (Bateau bateau : bateaux){
+            compteur ++;
+            resultat += "[\"" + bateau.getId()
+                    + "\",\"" + bateau.getMarque()
+                    + "\",\"" + bateau.getModele()
+                    + "\",\"" + bateau.getCouleur()
+                    + "\",\"" + bateau.getPuissance()
+                    + "\",\"" + bateau.getNbGilet()
+                    + "\",\"" + bateau.getTypeBateau()
+                    + "\",\"" + (bateau.getNeuf() ? "Neuf" : "Occasion")
+                    + "\",\"" + (bateau.getOptions() == null ? "Pas d'option" : bateau.getOptions().toString().replace("[", "").replace("]", ""))
+                    + "\",\"1\"]"
+            ;
+            if (compteur != bateaux.size()){
+                resultat += ",";
+            }
+        }
+
+        resultat += "]}";
+
+        return resultat;
+    }
 
     //Préparation de l'ajout d'une bateau
     @RequestMapping(value = "/responsablePrepareAjoutBateau", method = RequestMethod.GET)

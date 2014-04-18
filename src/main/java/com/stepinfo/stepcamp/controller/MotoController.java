@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -36,6 +33,37 @@ public class MotoController {
         model.addAttribute("listeMoto", motoService.getListeMotos());
 		return "listeMoto";
 	}
+
+    //Fichier JSON
+    @RequestMapping("/jsonListeMotos")
+    @ResponseBody
+    public String jsonListeMoto(Model model) {
+        int compteur = 0;
+        String resultat = "{\"aaData\":[";
+
+        List<Moto> motos = motoService.getListeMotos();
+        for (Moto moto : motos){
+            compteur ++;
+            resultat += "[\"" + moto.getId()
+                    + "\",\"" + moto.getMarque()
+                    + "\",\"" + moto.getModele()
+                    + "\",\"" + moto.getCouleur()
+                    + "\",\"" + moto.getPuissance()
+                    + "\",\"" + (moto.getCarenage() ? "Carénée" : "Non carénée")
+                    + "\",\"" + moto.getTypeModele()
+                    + "\",\"" + (moto.getNeuf() ? "Neuf" : "Occasion")
+                    + "\",\"" + (moto.getOptions() == null ? "Pas d'option" : moto.getOptions().toString().replace("[", "").replace("]", ""))
+                    + "\",\"1\"]"
+            ;
+            if (compteur != motos.size()){
+                resultat += ",";
+            }
+        }
+
+        resultat += "]}";
+
+        return resultat;
+    }
 
     //Préparation de l'ajout d'une moto
     @RequestMapping(value = "/responsablePrepareAjoutMoto", method = RequestMethod.GET)
