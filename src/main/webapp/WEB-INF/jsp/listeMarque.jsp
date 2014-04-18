@@ -1,15 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
     <head>
-    <link href="<spring:url value='/static/css/bootstrap.css'/>" rel="stylesheet" type="text/css" />
-        <link href="<spring:url value='/static/css/garage.css'/>" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="<spring:url value='/static/js/jquery.js'/>"></script>
-        <script type="text/javascript" src="<spring:url value='/static/js/bootstrap.js'/>"></script>
+    <link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="/static/css/garage.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="/static/js/jquery.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.js"></script>
     </head>
 
 	<body>

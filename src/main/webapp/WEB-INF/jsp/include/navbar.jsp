@@ -1,10 +1,13 @@
 <html>
      <head>
-        <link rel="stylesheet" href="static/css/bootstrap.min.css">
-        <link href="<spring:url value='/static/css/bootstrap.css'/>" rel="stylesheet" type="text/css" />
-        <link href="<spring:url value='/static/css/garage.css'/>" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="<spring:url value='/static/js/jquery.js'/>"></script>
-        <script type="text/javascript" src="<spring:url value='/static/js/bootstrap.js'/>"></script>
+        <style type="text/css" title="currentStyle">
+             @import "/static/css/bootstrap.min.css";
+             @import "/static/css/bootstrap.css";
+             @import "/static/css/garage.css";
+         </style>
+        <script type="text/javascript" src="/static/js/jquery.js'"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
     </head>
     <div class="navbar navbar-inverse">
         <div class="container">
