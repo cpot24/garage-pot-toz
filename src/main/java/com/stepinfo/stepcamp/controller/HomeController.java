@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 @Controller
 public class HomeController {
@@ -28,7 +31,13 @@ public class HomeController {
     @RequestMapping({"/", "/home"})
     public String goHome(Model model) {
 
+        SimpleDateFormat date_connexion = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat heure_connexion = new SimpleDateFormat("hh:mm");
 
+        Date date_jour = new Date();
+
+
+        // Informations sur le garage
         if (!model.containsAttribute("garage")) {
             garage = new Garage();
             model.addAttribute("garage", garage);
@@ -36,10 +45,17 @@ public class HomeController {
             model.addAttribute("adresse1Garage", garage.getAdresse1());
             model.addAttribute("adresse2Garage", garage.getAdresse2());
             model.addAttribute("telephoneGarage", garage.getTelephone());
+
+            // Informations de l'utilisateur
+            model.addAttribute("date_connexion", date_connexion.format(date_jour));
+            model.addAttribute("heure_connexion", heure_connexion.format(date_jour));
         }
+
+        // Nombre de véhicules présents
         model.addAttribute("nbVoitures", voitureService.getListeVoitures().size());
         model.addAttribute("nbMotos", motoService.getListeMotos().size());
         model.addAttribute("nbBateaux", bateauService.getListeBateaux().size());
+
         return "home";
     }
 
@@ -48,7 +64,7 @@ public class HomeController {
     public ModelAndView login(@RequestParam(value = "error", required = false) String error, @RequestParam(value = "logout", required = false) String logout) {
         ModelAndView model = new ModelAndView();
         if (error != null) {
-            model.addObject("error", "Erreur d'authentification");
+            model.addObject("error", "Les informations saisies ne sont pas correctes.");
         }
 
         if (logout != null) {

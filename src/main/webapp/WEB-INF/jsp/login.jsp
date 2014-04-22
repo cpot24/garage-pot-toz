@@ -15,11 +15,11 @@
   </head>
   <body>
     <div id="global" class="container">
-      <form class="form-signin" role="form" action="j_spring_security_check" method="post" autocomplete="on">
+      <form id="id_form" name="name_form" class="form-signin" role="form" action="j_spring_security_check" method="post" autocomplete="on">
         <h2 class="form-signin-heading">Acc&egrave;s s&eacute;curis&eacute; au garage</h2>
         <h3>Cette page est s&eacute;curis&eacute;e.<br />Les donn&eacute;est que vous allez saisir sont crypt&eacute;es<br />et ne peuvent pass &ecirc;tre "lues" par des tiers.</h3>
-        <input type="username" class="form-control" placeholder="Identifiant" required autofocus>
-        <input type="password" class="form-control" placeholder="Mot de passe" required>
+        <input type="username" name="username" class="form-control" placeholder="Identifiant" required autofocus>
+        <input type="password" name="password" class="form-control" placeholder="Mot de passe" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
       </form>
     </div>

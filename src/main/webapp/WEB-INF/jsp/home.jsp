@@ -14,6 +14,10 @@
             <img src="static/img/potatoes.png" />
         </div>
         <div style="padding-left: 5%; width: 95%;">
+            <div>
+                Bonjour ${pageContext.request.userPrincipal.name}, vous &ecirc;tes connect&eacute;s depuis le ${date_connexion} &agrave; ${heure_connexion}.
+            </div>
+            <br />
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     ${nomGarage}

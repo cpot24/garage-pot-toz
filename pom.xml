@@ -10,7 +10,8 @@
 
     <properties>
         <version.java>1.6</version.java>
-        <version.spring>3.2.1.RELEASE</version.spring>
+        <version.spring>3.2.8.RELEASE</version.spring>
+        <version.spring.security>3.2.3.RELEASE</version.spring.security>
         <version.aspectj>1.6.9</version.aspectj>
         <version.slf4j>1.5.10</version.slf4j>
         <geb.version>0.9.2</geb.version>
@@ -211,17 +212,17 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>3.2.3.RELEASE</version>
+            <version>${version.spring.security}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>3.2.3.RELEASE</version>
+            <version>${version.spring.security}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
-            <version>3.2.3.RELEASE</version>
+            <version>${version.spring.security}</version>
         </dependency>
 
         <!-- Hibernate/JPA dependencies -->
